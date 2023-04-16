@@ -1,0 +1,24 @@
+public int[] productExceptSelfNumsAsPrefix(int[] nums) {
+        int[] output = new int[nums.length];
+        output[0] = 1;
+
+        // finding the prefix and storing on output
+        for (int i = 0; i < nums.length - 1; i++) output[i + 1] =
+            output[i] * nums[i];
+
+        for (int i = nums.length - 2; i >= 0; i--) {
+            // filling in reverse op * nums
+            output[i] = nums[i + 1] * output[i];
+            // updating the nums to postfix so use in next iteration
+            nums[i] = nums[i] * nums[i + 1];
+        }
+        return output;
+    }
+}
+
+// - - - - - - - - -
+// -   TC: O(n)    -
+// -   SC: O(1)    -
+// - - - - - - - - -
+
+// In this case, since the additional array output is required for the solution, it should not be considered as extra space used. So, if we do not count the output array as additional space, then the space complexity is indeed O(1), 

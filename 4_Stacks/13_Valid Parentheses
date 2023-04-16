@@ -1,0 +1,69 @@
+class Solution {
+    public boolean isValid(String s) {
+        Stack<Character> brackets = new Stack<>();
+        Map<Character, Character> bracketLookup = new HashMap<>();
+
+        // imp to make a HM with keys being closing brackets not opening
+        bracketLookup.put(')', '(');
+        bracketLookup.put('}', '{');
+        bracketLookup.put(']', '[');
+
+        for (char c : s.toCharArray()) {
+            // since HM has closing brackets as keys everything gets added to stack till a closing appears
+            if (bracketLookup.containsKey(c)) {
+                // if closing appears then you peek stack = top element and then pop it if same else false 
+                // as the ORDER is diff ie; [(] is false and ([])() as open and close immediate
+                if (brackets.size() != 0 && brackets.peek() == bracketLookup.get(c)) {
+                    brackets.pop();
+                } else {
+                    return false;
+                }
+            } else {
+                brackets.push(c);
+            }
+        }
+        // if stack is empty then true 
+        if (brackets.size() == 0) return true;
+        return false;
+    }
+}
+
+
+// - - - - - - - - -
+// -   TC: O(n)  -
+// -   SC: O(n)  -
+// - - - - - - - - -
+
+
+
+
+// SC: Note that the worst-case space complexity occurs when the input string contains only opening brackets (e.g., "(((((("), in which case the stack will grow to the size of the input string, leading to a space complexity of O(n).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

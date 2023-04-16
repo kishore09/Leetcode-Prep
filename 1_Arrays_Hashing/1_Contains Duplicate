@@ -1,0 +1,23 @@
+import java.util.HashSet;
+
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        HashSet<Integer> unq = new HashSet<>();
+
+        for(int ele:nums){
+            if(unq.contains(ele)){
+                return true;
+            }
+            else{
+                unq.add(ele);
+            }
+        }
+        return false;
+    }
+}
+
+
+// - - - - - - - - -
+// -   TC: O(n)    -
+// -   SC: O(n)    -
+// - - - - - - - - -

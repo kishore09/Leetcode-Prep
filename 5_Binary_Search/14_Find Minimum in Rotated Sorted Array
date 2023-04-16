@@ -1,0 +1,34 @@
+class Solution {
+
+    public int findMin(int[] nums) {
+        int l = 0;
+        int r = nums.length - 1;
+
+        // pass through the array
+        while (l <= r) {
+            // since its rotaed if left = samll and r = big then it says it has not been rotaed 
+            //cuz in rotaion smallest goes to right
+            if (nums[l] <= nums[r]) {
+                return nums[l];
+            }
+            // calculate mid and if l = small and mid = big since its roated smallest will alwats be on right for sure
+            // it came here after l>r condition
+            int mid = (l + r) / 2;
+            if (nums[mid] >= nums[l]) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        return 0;
+    }
+}
+
+
+
+// - - - - - - - - -
+// -   TC: O(logn)  -
+// -   SC: O(1)  -
+// - - - - - - - - -
+
+// TC: VERY IMPORATANT as for any code which divies the array in half it is parsing only half of input if n then only n/2 
