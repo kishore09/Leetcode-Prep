@@ -1,14 +1,20 @@
+import java.util.*;
 class Solution {
+    // Input: strs = ["eat","tea","tan","ate","nat","bat"]
+    // Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
     public List<List<String>> groupAnagrams(String[] strs) {
         if(strs==null || strs.length==0){
             return new ArrayList<>();
         }
         HashMap<String,List<String>> memo = new HashMap<>();
         for(String str:strs){
+            // freq array with index -> alphabet, value-> freq
             char[] chararr = new char[26];
             for(char c:str.toCharArray()){
                 chararr[c-'a']++;
             }
+            
             String onesNzerosStr=String.valueOf(chararr);
             if(!memo.containsKey(onesNzerosStr)){
                 memo.put(onesNzerosStr,new ArrayList<>());
@@ -17,8 +23,6 @@ class Solution {
         }
         return new ArrayList<>(memo.values());
     }
-
-
 }
 
 // - - - - - - - - -

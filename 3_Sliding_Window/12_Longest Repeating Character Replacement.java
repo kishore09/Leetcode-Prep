@@ -1,4 +1,8 @@
 class Solution {
+    // Input: s = "ABAB", k = 2
+    // Output: 4
+    // Explanation: Replace the two 'A's with two 'B's or vice versa.
+
     public int characterReplacement(String s, int k) {
         int[] arr = new int[26];
         int ans = 0;

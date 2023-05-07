@@ -5,10 +5,12 @@ class Solution {
         HashSet<Integer> unq = new HashSet<>();
 
         for(int ele:nums){
+            // If present in HM then duplicate
             if(unq.contains(ele)){
                 return true;
             }
             else{
+                // every entry should be unique
                 unq.add(ele);
             }
         }
@@ -21,3 +23,7 @@ class Solution {
 // -   TC: O(n)    -
 // -   SC: O(n)    -
 // - - - - - - - - -
+
+
+
+

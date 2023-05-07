@@ -1,5 +1,7 @@
 public class Solution {
-
+    // Input: dummy_input = ["Hello","World"]
+    // Output: ["Hello","World"]
+    
     public String encode(List<String> strs) {
         StringBuilder encodedString = new StringBuilder();
         for (String str : strs) {
@@ -11,12 +13,19 @@ public class Solution {
     public List<String> decode(String str) {
         List<String> list = new ArrayList<>();
         int i = 0;
+        // loop till end 
         while (i < str.length()) {
             int j = i;
+            // put j at index of # 
             while (str.charAt(j) != '#') j++;
-
+            
+            // get the count number
             int length = Integer.valueOf(str.substring(i, j));
+            
+            // increment to count + 1
             i = j + 1 + length;
+
+            // extract substring 
             list.add(str.substring(j + 1, i));
         }
         return list;

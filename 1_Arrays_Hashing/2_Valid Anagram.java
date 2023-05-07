@@ -1,5 +1,6 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
+        // diff len != same text
         if (s.length() != t.length()) {
             return false;
         }
@@ -19,9 +20,11 @@ class Solution {
         // Check if the frequency of each character in t matches the frequency in s
         for (int i = 0; i < t.length(); i++) {
             char c = t.charAt(i);
+            // if t char is != map key 
             if (!map.containsKey(c) || map.get(c) == 0) {
                 return false;
             }
+            // if present reduce 1
             map.put(c, map.get(c) - 1);
         }
         

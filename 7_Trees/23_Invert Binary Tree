@@ -1,0 +1,14 @@
+class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        // here root is just a node so if the node is null 
+        // then retun null only not 0
+        if (root == null){ 
+            return null;
+        }
+        TreeNode node = new TreeNode(root.val);
+        // here you dont need a temp node to swap as you are using a new object altogether 
+        node.right = invertTree(root.left);
+        node.left = invertTree(root.right);
+        return node;
+    }
+}

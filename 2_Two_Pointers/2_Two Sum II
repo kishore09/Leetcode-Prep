@@ -1,5 +1,5 @@
 class Solution {
-
+    // Array is sorted
     // two pinter approach
 
     public int[] twoSum(int[] numbers, int target) {

@@ -1,0 +1,93 @@
+ - - - - - - HashMap - - - - - - 
+
+ HashMap<String, Integer> languages = new HashMap<>();
+ languages.put("Java", 8);
+
+ // get() method to get value
+ String value = languages.get(1); <- key
+ output:
+ Value at index 1: Java
+
+// return set view of keys
+ System.out.println("Keys: " + languages.keySet());
+ Output:
+ Keys: [1, 2, 3]
+
+// return set view of values
+ System.out.println("Values: " + languages.values());
+ Output:
+ Values: [Java, Python, JavaScript]
+ 
+ // print EntrySet
+ for (Map.Entry<Integer, String> entry : hashMap.entrySet()) {
+    int key = entry.getKey();
+    String value = entry.getValue();
+    System.out.println("Key: " + key + ", Value: " + value);
+ }
+ Output:
+ Key: 1, Value: apple
+ Key: 2, Value: banana
+ Key: 3, Value: cherry
+
+// remove element associated with key 2
+ String value = languages.remove(2);
+ System.out.println("Removed value: " + value);
+
+ Output: 
+ Removed value: Python
+
+ // change element with key 2
+ languages.replace(2, "C++");
+
+ Output:
+ Original HashMap: {1=Java, 2=Python, 3=JavaScript}
+ HashMap using replace(): {1=Java, 2=C++, 3=JavaScript}
+
+
+ - - - - - - ArrayList - - - - - - 
+
+ // create ArrayList
+ ArrayList<String> languages = new ArrayList<>();
+
+ // Add elements to ArrayList
+ languages.add("Java");
+
+ // get the element from the arraylist
+ String str = animals.get(1);
+
+ Output:
+ Element at index 1: Dog
+
+ // change the element of the array list
+ languages.set(2, "JavaScript");
+
+ output:
+ ArrayList: [Java, Kotlin, C++]
+Modified ArrayList: [Java, Kotlin, JavaScript]
+
+// remove element from index 2
+String str = animals.remove(2);
+
+output:
+Removed Element: Horse
+
+// get the number of elements of arraylist
+int size = primeNumbers.size();
+
+Output:
+Length of ArrayList: 4
+
+// iterating through ArrayList
+for (String language : animals) {
+    System.out.print(language);
+    System.out.print(", ");
+  }
+
+Output:
+Accessing individual elements:  
+Cow, Cat, Dog,
+
+
+
+
+

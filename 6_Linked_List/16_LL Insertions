@@ -1,0 +1,86 @@
+public class Node {
+    int data; // data of the node
+    Node next; // reference to the next node in the list
+
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+
+public class LinkedList {
+    Node head; // head node of the list
+
+    
+    public void insertAtStart(int data) {
+        Node newNode = new Node(data); // create a new node with the given data
+        newNode.next = head;
+        head = newNode; // make the new node the head node of the list
+    }
+
+
+    public void insertAtEnd(int data) {
+        Node newNode = new Node(data); 
+        if (head == null) { 
+            head = newNode; 
+        } else {
+            Node current = head;
+            while (current.next != null) { // traverse the list until the last node
+                current = current.next;
+            }
+            current.next = newNode; // set the next of the last node to the new node
+        }
+    }
+
+
+    public void insertAtMiddle(int data) {
+        Node newNode = new Node(data); 
+        if (head == null) { 
+            head = newNode; 
+        } else {
+            int length = 0;
+            Node current = head;
+            while (current != null) { // traverse the list to get its length
+                length++;
+                current = current.next;
+            }
+            int middle = length / 2;
+            current = head;
+            for (int i = 1; i < middle; i++) { // traverse the list to the middle node
+                current = current.next;
+            }
+            newNode.next = current.next; // set the next of the new node to the next of the middle node
+            current.next = newNode; // set the next of the middle node to the new node
+        }
+    }
+
+    public void insertAtIndex(int index, int data) {
+        Node newNode = new Node(data); 
+
+        if (head == null && index == 0) { // if the list is empty and the index is 0
+            head = newNode;
+            return;
+        }
+        
+        if (index == 0) {
+            newNode.next = head;
+            head = newNode; 
+            return;
+        }
+
+        Node current = head;
+        for (int i = 1; i < index; i++) {
+            current = current.next;
+        }
+
+        if (current == null) { // if the index is out of bounds
+            return;
+        }
+
+
+        newNode.next = current.next;
+        current.next = newNode;
+    }
+
+}
